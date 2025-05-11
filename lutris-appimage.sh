@@ -39,7 +39,7 @@ run_install() {
 	LLVM="https://github.com/pkgforge-dev/llvm-libs-debloated/releases/download/continuous/llvm-libs-mini-x86_64.pkg.tar.zst"
 	wget --retry-connrefused --tries=30 "$LLVM" -O ./llvm-libs.pkg.tar.zst
 	pac -U --noconfirm ./*.pkg.tar.zst
-	rm -f./*.pkg.tar.zst
+	rm -f ./*.pkg.tar.zst
 
 	echo '== shrink (optionally)'
 	pac -Rsndd --noconfirm wget gocryptfs jq gnupg
