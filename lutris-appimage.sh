@@ -31,6 +31,10 @@ run_install() {
 	echo '== install glibc with patches for Easy Anti-Cheat (optionally)'
 	yes|pac -S glibc-eac lib32-glibc-eac
 
+ wget --retry-connrefused --tries=30 \
+          "https://archive.archlinux.org/packages/p/python/python-3.12.7-1-x86_64.pkg.tar.zst"
+        pacman -U --noconfirm python-3.12.7-1-x86_64.pkg.tar.zst
+
 	echo '== install debloated llvm for space saving (optionally)'
 	LLVM="https://github.com/pkgforge-dev/llvm-libs-debloated/releases/download/continuous/llvm-libs-mini-x86_64.pkg.tar.zst"
 	wget --retry-connrefused --tries=30 "$LLVM" -O ./llvm-libs.pkg.tar.zst
